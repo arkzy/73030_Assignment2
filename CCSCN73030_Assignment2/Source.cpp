@@ -8,7 +8,7 @@
 
 using namespace std;
 
-//#define PRE_RELEASE
+#define PRE_RELEASE
 
 typedef struct STUDENT_DATA {
 	string FName;
@@ -60,7 +60,30 @@ std::vector<Student> ReadData(string Filename) {
 
 int main() {
 
+#ifdef PRE_RELEASE
+	cout << "Pre Release Mode Running\n";
+#else 
+	cout << "Standard Mode Running\n";
+#endif
+	vector<STUDENT_DATA> Vec_Data;
+	Vec_Data
+#ifdef PRE_RELEASE
+		= ReadData("C:\\Users\\arunp\\source\\repos\\CSCN73030_Lab2\\Resource Files\\StudentData_Emails.txt");
 
+#else
+		= ReadData("C:\\Users\\arunp\\source\\repos\\CSCN73030_Lab2\\Resource Files\\StudentData.txt");
+#endif
+
+#ifdef _DEBUG
+	for (int i = 0; i < Vec_Data.size(); i++)
+	{
+		cout << "Name : " << Vec_Data[i].FName << " " << Vec_Data[i].LName;
+#ifdef PRE_RELEASE
+		cout << "\tEmail: " << Vec_Data[i].Email;
+#endif
+		cout << endl;
+	}
+#endif
 
 
 
