@@ -4,8 +4,6 @@
 #include <string>
 #include<sstream>
 
-
-
 using namespace std;
 
 #define PRE_RELEASE
@@ -68,10 +66,10 @@ int main() {
 	vector<STUDENT_DATA> Vec_Data;
 	Vec_Data
 #ifdef PRE_RELEASE
-		= ReadData("C:\\Users\\arunp\\source\\repos\\CSCN73030_Lab2\\Resource Files\\StudentData_Emails.txt");
+		= ReadData("StudentData_Emails.txt");
 
 #else
-		= ReadData("C:\\Users\\arunp\\source\\repos\\CSCN73030_Lab2\\Resource Files\\StudentData.txt");
+		= ReadData("StudentData.txt");
 #endif
 
 #ifdef _DEBUG
